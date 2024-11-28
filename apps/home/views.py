@@ -1,6 +1,16 @@
 from django.shortcuts import render, redirect
 from home.models import PesquisaDados, PesquisaResposta
 
+from pathlib import Path
+import os
+
+CAMINHO = Path(__file__).parent.parent.parent
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')  # Backend não interativo
+
 #perguntas referente ao projeto
 from home.form_perguntas import perguntas_form
 # Create your views here.
@@ -42,10 +52,34 @@ def home(request, pergunta, id_pessoa=None):
     return render(request,'home.html', context={'questao': perguntas_form[pergunta]['pergunta'],'alternativas': perguntas_form[pergunta]['alternativas'] , 'pergunta': f'Pergunta {pergunta}', 'perguntas': range(len(perguntas_form)), 'numero': pergunta,'id_pessoa':id_pessoa,'perguntas_respondidas': perguntas_respondidas})
 
 def relatorio(request):
-    dados = PesquisaResposta.objects.all()
-    for n in dados:
-        print(n.resposta)
-    
+    dados_all = PesquisaResposta.objects.all()
+    dados = []
+    for dados_fil in dados_all:
+        dados_fil.__dict__.pop('_state')
+        dados.append(dados_fil.__dict__)
+
+    if request.method == 'POST':
+        grafico = request.POST.get('botao')
+        match grafico:
+            case '1':
+                for n in range(1,11):
+
+                    data = {'resposta':[],'alternativas':perguntas_form[n]['alternativas'],'valor':[]}
+                    print(data['alternativas'])
+                    for dado in dados:
+                        if n == dado['pergunta']:
+                            data['valor'].append(dado['resposta'])
+                    for resp in data['alternativas']:
+                        data['resposta'].append(data['valor'].count(resp))
+                    data.pop('valor')
+                    sns.barplot(data=data,y='resposta',x='alternativas')
+                    plt.title(f'Gráfico da Pergunta {n}')
+                    plt.xticks(rotation=270, fontsize=10)
+                    plt.tight_layout()
+                    plt.savefig(os.path.join(CAMINHO,'static',f'arquivo{n}.png'), dpi=300, bbox_inches='tight')
+                    plt.clf()
+            case '2':
+                ...
     return render(request,'relatorio.html')
 
 def error404(*request):
