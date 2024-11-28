@@ -42,6 +42,9 @@ def home(request, pergunta, id_pessoa=None):
     return render(request,'home.html', context={'questao': perguntas_form[pergunta]['pergunta'],'alternativas': perguntas_form[pergunta]['alternativas'] , 'pergunta': f'Pergunta {pergunta}', 'perguntas': range(len(perguntas_form)), 'numero': pergunta,'id_pessoa':id_pessoa,'perguntas_respondidas': perguntas_respondidas})
 
 def relatorio(request):
+    dados = PesquisaResposta.objects.all()
+    for n in dados:
+        print(n.resposta)
     
     return render(request,'relatorio.html')
 

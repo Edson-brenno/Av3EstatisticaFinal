@@ -66,23 +66,23 @@
                         {% if alternativas == 'input valor' %}
                             <div class="input-group mb-3">
                                 <span class="input-group-text">KG</span>
-                                <input type="text" name="pergunta" class="form-control" aria-label="KG de lixo produzido">
+                                <input type="number" required name="pergunta" class="form-control" aria-label="KG de lixo produzido">
                             </div>
                         {% elif alternativas == 'input init' %}
                             <div class="input-group">
                                 <span class="input-group-text">Nome e Idade</span>
-                                <input type="text" aria-label="nome" name="nome" placeholder="Nome" class="form-control">
-                                <input type="text" aria-label="idade" name="idade" placeholder="Idade" class="form-control">
+                                <input type="text" required aria-label="nome" name="nome" placeholder="Nome" class="form-control">
+                                <input type="text" required aria-label="idade" name="idade" placeholder="Idade" class="form-control">
                             </div>
                         {% elif alternativas == 'input texto' %}
                             <div class="input-group">
                                 <span class="input-group-text">Resposta</span>
-                                <textarea class="form-control" name="pergunta" aria-label="With textarea"></textarea>
+                                <textarea class="form-control" required name="pergunta" aria-label="With textarea"></textarea>
                             </div>
                         {% elif alternativas %}
                             {% for alternativa in alternativas %}
                             <div class="form-check">
-                                <input class="form-check-input" name="pergunta" type="radio" name="flexRadioDefault" value="{{alternativa}}" id="flexRadioDefault1">
+                                <input class="form-check-input" required name="pergunta" type="radio" name="flexRadioDefault" value="{{alternativa}}" id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                   {{alternativa}} 
                                 </label>
