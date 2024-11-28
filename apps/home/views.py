@@ -11,6 +11,10 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')  # Backend não interativo
 
+import pandas as pd
+import numpy as np
+from scipy import stats
+
 #perguntas referente ao projeto
 from home.form_perguntas import perguntas_form
 # Create your views here.
@@ -58,8 +62,9 @@ def relatorio(request):
         dados_fil.__dict__.pop('_state')
         dados.append(dados_fil.__dict__)
 
-    if request.method == 'POST':
+    if request.method == 'GET':
         grafico = request.POST.get('botao')
+        grafico = '2'
         match grafico:
             case '1':
                 for n in range(1,11):
@@ -79,7 +84,20 @@ def relatorio(request):
                     plt.savefig(os.path.join(CAMINHO,'static',f'arquivo{n}.png'), dpi=300, bbox_inches='tight')
                     plt.clf()
             case '2':
-                ...
+                data = pd.DataFrame(dados)
+
+                # # Média
+                # mean = data["resposta"].mean()
+                # print(f"Média: {mean}")
+
+                # # Mediana
+                # median = data["Notas"].median()
+                # print(f"Mediana: {median}")
+
+                # # Moda
+                # mode = stats.mode(data["Notas"])
+                # print(f"Moda: {mode.mode[0]} (Frequência: {mode.count[0]})")
+                print(data)
     return render(request,'relatorio.html')
 
 def error404(*request):
