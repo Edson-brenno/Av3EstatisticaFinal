@@ -67,7 +67,6 @@ def relatorio(request):
             case 'grafico':
                 for n in range(1,7):
                     data = {'resposta':[],'alternativas':perguntas_form[n]['alternativas'],'valor':[]}
-                    print(data['alternativas'])
                     for dado in dados:
                         if n == dado['pergunta']:
                             data['valor'].append(dado['resposta'])
@@ -141,11 +140,8 @@ def relatorio(request):
                 tabela = []
                 for n in range(1,11):
                     linhas = tabela_all[(tabela_all['pergunta'] == n)]
-                    tabela.append(linhas)
-                    for i in linhas.values:
-                        print(i)
-                print(tabela[0]['pergunta'])                        
-                return render(request,'relatorio.html',{'tabela':tabela})       
+                    tabela.append(linhas)                    
+                return render(request,'relatorio.html',{'tabela':tabela})   
     return render(request,'relatorio.html')
 
 def error404(*request):
