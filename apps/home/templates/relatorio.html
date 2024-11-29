@@ -1,5 +1,6 @@
 {% extends "base/base.html" %}
 {% block body %}
+{% load static %}
 <style>
     body {
         height: 100vh;
@@ -33,7 +34,8 @@
         margin-left: 250px;
         margin-top: 60px;
         padding: 20px;
-        background-color: #ecf0f1;
+        background-image: url('https://greenbond.com.br/wp-content/uploads/2021/06/foto-1024x576.png');
+        background-size: cover;
         height: calc(100vh - 60px);
         overflow-y: auto;
     }
@@ -47,53 +49,99 @@
 </style>
 <!-- Sidebar -->
 <div class="sidebar d-flex flex-column p-3" style="width: 250px;">
-    <h3 class="text-center mb-4">Meu Dashboard</h3>
+    <h3 class="text-center mb-4">Relatórios</h3>
     <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Relatório 1</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Relatório 2</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Relatório 3</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Configurações</a>
-        </li>
+        <form action="{% url "relatorio" %}" method="post">
+            {% csrf_token %}
+            <li class="nav-item">
+                <button class="btn btn-info" name="botao" value="grafico" type="submit">Gráficos</button>
+            </li>
+            <br>
+            <li class="nav-item">
+                <button class="btn btn-info" name="botao" value="tendencia" type="submit">Tendências Centrais</button>
+            </li>
+            <br>
+            <li class="nav-item">
+                <button class="btn btn-info" name="botao" value="dispersao" type="submit">Dispersões</button>
+            </li>
+            <br>
+            <li class="nav-item">
+                <button class="btn btn-info" name="botao" value="tabela" type="submit">Tabelas</button>
+            </li>
+            <br>
+        </form>
     </ul>
 </div>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Logo</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Página 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Página 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Página 3</a>
-                </li>
-            </ul>
-        </div>
+        <a class="navbar-brand" href="{% url "relatorio" %}">HOME</a>
     </div>
 </nav>
 
 <!-- Content -->
 <div class="content">
-    <div class="report">
-        <h2>Relatório 1</h2>
-        <p>Aqui você pode visualizar os gráficos e dados do relatório.</p>
-        <!-- Adicione seus gráficos aqui -->
-    </div>
+    {% if grafico %}
+        {% for n in  grafico%}
+            <div class="report">
+                <h2>Gráfico da Questão {{forloop.counter}}</h2>
+                <p>Gráfico contendo a frequência de cada alternativa da questão</p>
+                <!-- Adicione seus gráficos aqui -->
+                 <img src="{% static n %}" alt="Gráfico da Questão {{forloop.counter}}">
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+    {% if tendencia %}
+        {% for n in  tendencia%}
+            <div class="report">
+                <h2>Tendências da Questão {{forloop.counter}}</h2>
+                <p>Tendência Central contendo, Média, Mediana, Moda</p>
+                <!-- Adicione seus gráficos aqui -->
+                 <img src="{% static n %}" alt="Tendências da Questão {{forloop.counter}}">
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+    {% if dispersao %}
+        {% for n in  dispersao%}
+            <div class="report">
+                <h2>Dispersões da Questão {{forloop.counter}}</h2>
+                <p>Dispersão contendo, Desvio Médio, Desvio Padrão, Variância, Amplitude</p>
+                <!-- Adicione seus gráficos aqui -->
+                 <img src="{% static n %}" alt="Dispersão da Questão {{forloop.counter}}">
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+    {% if tabela %}
+        {% for linhas in  tabela %}
+            <div class="report">
+                <h2>Tabela da Questão {{forloop.counter}}</h2>
+                <p>Tabela contendo as repostas da pergunta</p>
+                <!-- Adicione seus gráficos aqui -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Pessoa ID</th>
+                        <th scope="col">Resposta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for linha in linhas.values %}
+                            <tr class="table-info">
+                                <th scope="row">{{linha.0}}</th>
+                                <td>{{linha.2}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 {% endblock body %}

@@ -11,7 +11,7 @@ perguntas_form = [
 
         {'pergunta':'Em uma escala de 1 a 5, qual é a sua percepção sobre as ações das empresas para proteger a vida marinha ?', 'alternativas':['Altamente Suficiente','Muito Suficiente', 'Suficiente', 'Pouco Suficiente', 'Nada Suficiente']},
 
-        {'pergunta':'Na sua opinião, qual dessas ações é mais importante para proteger os oceanos ?', 'alternativas':['Reduzir o uso de plásticos',' Aumentar campanhas de conscientização', 'Incentivar práticas de pesca sustentável', 'Reforçar leis de proteção ambiental', 'Melhorar o saneamento básico para evitar esgoto nos oceanos']},
+        {'pergunta':'Na sua opinião, qual dessas ações é mais importante para proteger os oceanos ?', 'alternativas':['Reduzir o uso de plásticos',' Aumentar campanhas de conscientização', 'Incentivar práticas de pesca sustentável', 'Reforçar leis de proteção ambiental', 'Melhorar o saneamento básico']},
 
         {'pergunta':'Quantos KG de lixo você produz por mês ?', 'alternativas':'input valor'},
 
