@@ -39,9 +39,6 @@ ALLOWED_HOSTS = ['*']
 #configurando uma pasta para os apps
 sys.path.insert(0,os.path.join(PROJECT_ROOT,'../apps'))
 
-#configurando permissões
-ROLEPERMISSIONS_MODULE = 'config.roles'
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,10 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'dev',
-    'login',
-    'cadastro',
-    'rolepermissions',
 ]
 
 MIDDLEWARE = [
@@ -147,9 +140,3 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-#configurando url de login 
-LOGIN_URL = '/login'
-
-#configurando a permissão de redirecionar para tela de login
-ROLEPERMISSIONS_REDIRECT_TO_LOGIN = True
