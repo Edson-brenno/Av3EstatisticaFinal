@@ -10,7 +10,9 @@
                 Sua participação é fundamental! Queremos entender melhor como as pessoas percebem e se relacionam com esses temas para, juntos, encontrarmos soluções mais eficazes. Responda ao nosso questionário e contribua para a preservação da vida na água.
             </p>
 
-            <button class="btn btn-primary btn-md " type="button">Responder Pesquisa</button>
+            <button class="btn btn-primary btn-md " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Responder Pesquisa</button>
+
+            {% include 'questionario/offcanvas.html' %}
         </div>
 {#    </div>#}
 {% endblock %}

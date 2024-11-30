@@ -1,0 +1,20 @@
+<div class="offcanvas offcanvas-start w-100" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Formulário de Pesquisa</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+    <div class="offcanvas-body">
+        <p>
+          Sua participação neste formulário é um passo importante para proteger os oceanos, mares e ecossistemas marinhos.
+        </p>
+
+        <form action="enviar/" method="post">
+            {% include 'questionario/perguntas/perguntas.html' %}
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+
+
+    </div>
+</div>

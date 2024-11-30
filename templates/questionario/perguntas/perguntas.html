@@ -1,0 +1,236 @@
+
+{#Perguntas base#}
+<div class="card" id="informacoesBase" style="display: none">
+    <div class="card-header text-bg-primary">
+        Informações Base
+    </div>
+    <div class="card-body" >
+        <div class="card-text">
+            <label for="emailEntrevistado" class="form-label text-start">E-mail</label>
+            <input type="email" required id="emailEntrevistado" class="form-control">
+
+            <label for="idadeEntrevistado" class="form-label text-start mt-3">Idade</label>
+            <input type="number" min="0" required id="idadeEntrevistado" class="form-control">
+        </div>
+    </div>
+</div>
+
+
+{#Perguntas 1#}
+<div class="card mb-1" id="informacoesBase">
+    <div class="card-header text-bg-primary">
+        Questionário
+    </div>
+    <div class="card-body ">
+        <div class="card-text">
+
+            <div class="border-bottom mb-1">
+                <label for="emailEntrevistado" class="form-label text-start">E-mail</label>
+                <input type="email" required id="emailEntrevistado" class="form-control">
+            </div>
+
+            <div class="border-top mb-1" style="margin-bottom: 2rem">
+                <label for="idadeEntrevistado" class="form-label text-start mt-3">Idade</label>
+                <input type="number" min="0" required id="idadeEntrevistado" class="form-control">
+            </div>
+
+            <div class="border-bottom border-top mb-1 mt-2">
+                 {#            Pergunta 1#}
+                <p>
+                    Em uma escala de 1 a 5, com que frequência você realiza ações em casa para proteger o meio ambiente (ex.: separar o lixo, evitar produtos não recicláveis): <br>
+                    <p style="color: darkred">obs: Na escala, 1 significa Baixíssima Frequência e 5 significa Altíssima Frequência.</p>
+                </p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  required name="Questao1" id="inlineRadio1" value="1">
+                  <label class="form-check-label" for="inlineRadio1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao1" id="inlineRadio2" value="2">
+                  <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  required name="Questao1" id="inlineRadio2" value="3">
+                  <label class="form-check-label" for="inlineRadio2">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao1" id="inlineRadio2" value="4">
+                  <label class="form-check-label" for="inlineRadio2">4</label>
+                </div>
+                <div class="form-check form-check-inline mb-2">
+                  <input class="form-check-input" type="radio" required name="Questao1" id="inlineRadio2" value="5">
+                  <label class="form-check-label" for="inlineRadio2">5</label>
+                </div>
+            </div>
+
+            {#            Pergunta 2#}
+            <div class="border-bottom mb-1">
+                 {#            Pergunta 2#}
+                <p>
+                    Em uma escala de 1 a 5, com que frequência você evita o uso de plásticos descartáveis para reduzir a poluição dos oceanos: <br>
+                    <p style="color: darkred">obs: Na escala, 1 significa Baixíssima Frequência e 5 significa Altíssima Frequência.</p>
+                </p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao2" id="inlineRadio1" value="1">
+                  <label class="form-check-label" for="inlineRadio1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio"  required name="Questao2" id="inlineRadio2" value="2">
+                  <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao2" id="inlineRadio2" value="3">
+                  <label class="form-check-label" for="inlineRadio2">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao2" id="inlineRadio2" value="4">
+                  <label class="form-check-label" for="inlineRadio2">4</label>
+                </div>
+                <div class="form-check form-check-inline mb-2">
+                  <input class="form-check-input" type="radio" required name="Questao2" id="inlineRadio2" value="5">
+                  <label class="form-check-label" for="inlineRadio2">5</label>
+                </div>
+            </div>
+
+            {#            Pergunta 3#}
+            <div class="border-bottom mb-1">
+                <p>
+                    Em uma escala de 1 a 5, quanto você considera importante preservar os oceanos para o futuro: <br>
+                    <p style="color: darkred">obs: Na escala, 1 significa Baixíssima importância e 5 significa Altíssima importância.</p>
+                </p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio1" value="1">
+                  <label class="form-check-label" for="inlineRadio1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio2" value="2">
+                  <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio2" value="3">
+                  <label class="form-check-label" for="inlineRadio2">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio2" value="4">
+                  <label class="form-check-label" for="inlineRadio2">4</label>
+                </div>
+                <div class="form-check form-check-inline mb-2">
+                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio2" value="5">
+                  <label class="form-check-label" for="inlineRadio2">5</label>
+                </div>
+            </div>
+
+            {#            Pergunta 4#}
+            <div class="border-bottom mb-1">
+                <p>
+                    Em uma escala de 1 a 5, qual é a sua percepção sobre as ações do governo para proteger a vida marinha: <br>
+                    <p style="color: darkred">obs: Na escala, 1 significa Nada Suficiente e 5 significa Altamente  Suficiente.</p>
+                </p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio1" value="1">
+                  <label class="form-check-label" for="inlineRadio1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio2" value="2">
+                  <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio2" value="3">
+                  <label class="form-check-label" for="inlineRadio2">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio2" value="4">
+                  <label class="form-check-label" for="inlineRadio2">4</label>
+                </div>
+                <div class="form-check form-check-inline mb-2">
+                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio2" value="5">
+                  <label class="form-check-label" for="inlineRadio2">5</label>
+                </div>
+            </div>
+
+            {#            Pergunta 5#}
+            <div class="border-bottom mb-1">
+                <p>
+                    Em uma escala de 1 a 5, qual é a sua percepção sobre as ações das empresas para proteger a vida marinha: <br>
+                    <p style="color: darkred">obs: Na escala, 1 significa Nada Suficiente e 5 significa Altamente  Suficiente.</p>
+                </p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio1" value="1">
+                  <label class="form-check-label" for="inlineRadio1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio2" value="2">
+                  <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio2" value="3">
+                  <label class="form-check-label" for="inlineRadio2">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio2" value="4">
+                  <label class="form-check-label" for="inlineRadio2">4</label>
+                </div>
+                <div class="form-check form-check-inline mb-2">
+                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio2" value="5">
+                  <label class="form-check-label" for="inlineRadio2">5</label>
+                </div>
+            </div>
+
+            {#            Pergunta 6#}
+            <div class="border-bottom mb-2">
+                <p>
+                    Na sua opinião, qual dessas ações é mais importante para proteger os oceanos ?
+                </p>
+                <select class="form-select" required aria-label="Default select example" name="Questao6">
+                  <option value="1">Reduzir o uso de plásticos</option>
+                  <option value="2">Aumentar campanhas de conscientização</option>
+                  <option value="3">Incentivar práticas de pesca sustentável</option>
+                  <option value="4">Reforçar leis de proteção ambiental</option>
+                  <option value="5">Melhorar o saneamento básico</option>
+                </select>
+            </div>
+
+            {#            Pergunta 7#}
+            <div class="border-top mb-2 mt-1">
+                <p>
+                    Quantos KG de lixo você produz por mês ?
+                </p>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">KG</span>
+                    <input type="number" min="0" required name="Questao7" class="form-control" aria-label="KG de lixo produzido">
+                </div>
+            </div>
+
+            {#            Pergunta 8#}
+            <div class="border-top mb-2 mt-1">
+                <p>
+                    Na sua opnião por que a preservação dos ecossistemas costeiros e marinhos são essencial para a segurança alimentar global?
+                </p>
+                <div class="input-group">
+                    <textarea class="form-control" required name="Questao8" aria-label="With textarea"></textarea>
+                </div>
+            </div>
+
+
+            {#            Pergunta 9#}
+            <div class="border-top mb-2 mt-1">
+                <p>
+                    Na sua opnião quais são as principais fontes de poluição nos oceanos e mares, e como a redução dessas fontes pode impactar positivamente a biodiversidade aquática ?
+                </p>
+                <div class="input-group">
+                    <textarea class="form-control" required name="Questao9" aria-label="With textarea"></textarea>
+                </div>
+            </div>
+
+            {#            Pergunta 10#}
+            <div class="border-top mb-2 mt-1">
+                <p>
+                    Na sua opinião, quais ações poderiam ser implementadas para promover a pesca sustentável e minimizar os impactos negativos nos ecossistemas marinhos? ?
+                </p>
+                <div class="input-group">
+                    <textarea class="form-control" required name="Questao10" aria-label="With textarea"></textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
