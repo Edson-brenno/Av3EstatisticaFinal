@@ -1,6 +1,19 @@
 {% extends "base/base.html" %}
 {% block body %}
 {#    <div class="mt-4 p-5 mb-4 bg-body-tertiary rounded-3 px-3">#}
+        {% if sucesso %}
+           <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ sucesso }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+           </div>
+        {% endif %}
+
+        {% if error %}
+           <div class="alert alert-danger  alert-dismissible fade show" role="alert">
+              {{ error }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+           </div>
+        {% endif %}
         <div class="p-3 justify-content-center w-100 " id="text-sistema">
             <h4 class="text-center pb-3">Contribua para a Preservação da Vida na Água</h4>
 

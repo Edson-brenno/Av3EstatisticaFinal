@@ -20,7 +20,7 @@ def questionario(request):
         questao10 = request.POST['Questao10']
 
         if TbQuestionario.objects.filter(email=email).exists():
-            return HttpResponse("Email ja existe")
+            return render(request, 'index/index.html', {"error": "Já possui um registro nesse E-mail"})
 
         questionario = TbQuestionario(
             email=email,
@@ -39,4 +39,4 @@ def questionario(request):
 
         questionario.save()
 
-        return HttpResponse("<h1>Questionario Salvo</h1>")
+        return render(request, 'index/index.html', {"sucesso": "Questionário realizado com sucesso!"})
