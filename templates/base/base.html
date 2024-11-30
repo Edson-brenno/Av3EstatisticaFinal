@@ -39,7 +39,7 @@
                 // Wait for the data to be resolved
                 const dados_graficos = await fazerRequisicao('/relatorio/dados/grafico/');
                 const dados_dispersao = await fazerRequisicao('/relatorio/dados/dispersao/')
-
+                const dados_tendencia = await fazerRequisicao('/relatorio/dados/tendencia/')
                 // Log to confirm data is received
                 console.log(dados_graficos);
 
@@ -292,6 +292,115 @@
                     dispersao4.render();
                     dispersao5.render();
                     dispersao6.render();
+
+                    var tendencia1 = new CanvasJS.Chart("tendencia_questao_1", {
+                        title: {
+                            text: "Tendencia Questão 1"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_tendencia['tendencia_questao_1']['media'] || 0 },
+                                    { label: "Mediana", y: dados_tendencia['tendencia_questao_1']['mediana'] || 0 },
+                                    { label: "Moda", y: dados_tendencia['tendencia_questao_1']['moda'] || 0 },
+                                ]
+                            }
+                        ]
+                    });
+
+                    var tendencia2 = new CanvasJS.Chart("tendencia_questao_2", {
+                        title: {
+                            text: "Tendencia Questão 2"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_tendencia['tendencia_questao_2']['media'] || 0 },
+                                    { label: "Mediana", y: dados_tendencia['tendencia_questao_2']['mediana'] || 0 },
+                                    { label: "Moda", y: dados_tendencia['tendencia_questao_2']['moda'] || 0 },
+                                ]
+                            }
+                        ]
+                    });
+
+                    var tendencia3 = new CanvasJS.Chart("tendencia_questao_3", {
+                        title: {
+                            text: "Tendencia Questão 3"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_tendencia['tendencia_questao_3']['media'] || 0 },
+                                    { label: "Mediana", y: dados_tendencia['tendencia_questao_3']['mediana'] || 0 },
+                                    { label: "Moda", y: dados_tendencia['tendencia_questao_3']['moda'] || 0 },
+                                ]
+                            }
+                        ]
+                    });
+
+                    var tendencia4 = new CanvasJS.Chart("tendencia_questao_4", {
+                        title: {
+                            text: "Tendencia Questão 4"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_tendencia['tendencia_questao_4']['media'] || 0 },
+                                    { label: "Mediana", y: dados_tendencia['tendencia_questao_4']['mediana'] || 0 },
+                                    { label: "Moda", y: dados_tendencia['tendencia_questao_4']['moda'] || 0 },
+                                ]
+                            }
+                        ]
+                    });
+
+                    var tendencia5 = new CanvasJS.Chart("tendencia_questao_5", {
+                        title: {
+                            text: "Tendencia Questão 5"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_tendencia['tendencia_questao_5']['media'] || 0 },
+                                    { label: "Mediana", y: dados_tendencia['tendencia_questao_5']['mediana'] || 0 },
+                                    { label: "Moda", y: dados_tendencia['tendencia_questao_5']['moda'] || 0 },
+                                ]
+                            }
+                        ]
+                    });
+
+                    var tendencia6 = new CanvasJS.Chart("tendencia_questao_6", {
+                        title: {
+                            text: "Tendencia Questão 6"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_tendencia['tendencia_questao_6']['media'] || 0 },
+                                    { label: "Mediana", y: dados_tendencia['tendencia_questao_6']['mediana'] || 0 },
+                                    { label: "Moda", y: dados_tendencia['tendencia_questao_6']['moda'] || 0 },
+                                ]
+                            }
+                        ]
+                    });
+
+                    tendencia1.render();
+                    tendencia2.render();
+                    tendencia3.render();
+                    tendencia4.render();
+                    tendencia5.render();
+                    tendencia6.render();
                 };
 
 

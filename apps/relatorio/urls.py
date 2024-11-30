@@ -6,4 +6,5 @@ urlpatterns = [
     path('relatorio/estatistico/', views.relatorio, name='relatorio'),
     path('relatorio/dados/grafico/', views.obter_dados_grafico, name='obter_dados_grafico'),
     path('relatorio/dados/dispersao/', views.obter_dados_dispersao, name='obter_dados_dispersao'),
+    path('relatorio/dados/tendencia/', views.obter_dados_tendencia, name='obter_dados_tendencia'),
 ]
