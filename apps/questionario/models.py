@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class TbQuestionario(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True, unique=True, editable=False )
     email = models.EmailField(unique=True)
     idade = models.IntegerField(null=False)
     questao_1 = models.IntegerField(null=False)
