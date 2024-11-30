@@ -8,11 +8,12 @@
           Sua participação neste formulário é um passo importante para proteger os oceanos, mares e ecossistemas marinhos.
         </p>
 
-        <form action="/questionario/" method="post" name="teste">
+        <form action="/questionario/" method="post" id="teste">
             {% csrf_token %}
-            {% include 'questionario/perguntas/perguntas.html' %}
-
-            <button type="submit" onclick="teste.submit()" class="btn btn-primary">Enviar</button>
+            <div>
+                <!-- Perguntas -->
+                {% include 'questionario/perguntas/perguntas.html' %}
+            </div>
         </form>
 
 

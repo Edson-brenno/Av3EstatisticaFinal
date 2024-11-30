@@ -1,21 +1,4 @@
 
-{#Perguntas base#}
-<div class="card" id="informacoesBase" style="display: none">
-    <div class="card-header text-bg-primary">
-        Informações Base
-    </div>
-    <div class="card-body" >
-        <div class="card-text">
-            <label for="emailEntrevistado" class="form-label text-start">E-mail</label>
-            <input type="email" required id="emailEntrevistado" class="form-control">
-
-            <label for="idadeEntrevistado" class="form-label text-start mt-3">Idade</label>
-            <input type="number" min="0" required id="idadeEntrevistado" class="form-control">
-        </div>
-    </div>
-</div>
-
-
 {#Perguntas 1#}
 <div class="card mb-1" id="informacoesBase">
     <div class="card-header text-bg-primary">
@@ -24,14 +7,13 @@
     <div class="card-body ">
         <div class="card-text">
 
-            <div class="border-bottom mb-1">
+             <div class="border-bottom mb-1">
                 <label for="emailEntrevistado" class="form-label text-start">E-mail</label>
-                <input type="email" required id="emailEntrevistado" class="form-control">
+                <input type="email" required id="emailEntrevistado" class="form-control" name="email">
             </div>
-
             <div class="border-top mb-1" style="margin-bottom: 2rem">
                 <label for="idadeEntrevistado" class="form-label text-start mt-3">Idade</label>
-                <input type="number" min="0" required id="idadeEntrevistado" class="form-control">
+                <input type="number" min="0" required id="idadeEntrevistado" class="form-control" name="idade">
             </div>
 
             <div class="border-bottom border-top mb-1 mt-2">
@@ -41,24 +23,24 @@
                     <p style="color: darkred">obs: Na escala, 1 significa Baixíssima Frequência e 5 significa Altíssima Frequência.</p>
                 </p>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio"  required name="Questao1" id="inlineRadio1" value="1">
-                  <label class="form-check-label" for="inlineRadio1">1</label>
+                  <input class="form-check-input" type="radio"  required name="Questao1" id="Questao1Radio1" value="1">
+                  <label class="form-check-label" for="Questao1Radio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao1" id="inlineRadio2" value="2">
-                  <label class="form-check-label" for="inlineRadio2">2</label>
+                  <input class="form-check-input" type="radio"  name="Questao1" id="Questao1Radio2" value="2">
+                  <label class="form-check-label" for="Questao1Radio2">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio"  required name="Questao1" id="inlineRadio2" value="3">
-                  <label class="form-check-label" for="inlineRadio2">3</label>
+                  <input class="form-check-input" type="radio"   name="Questao1" id="Questao1Radio3" value="3">
+                  <label class="form-check-label" for="Questao1Radio3">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao1" id="inlineRadio2" value="4">
-                  <label class="form-check-label" for="inlineRadio2">4</label>
+                  <input class="form-check-input" type="radio"  name="Questao1" id="Questao1Radio4" value="4">
+                  <label class="form-check-label" for="Questao1Radio4">4</label>
                 </div>
                 <div class="form-check form-check-inline mb-2">
-                  <input class="form-check-input" type="radio" required name="Questao1" id="inlineRadio2" value="5">
-                  <label class="form-check-label" for="inlineRadio2">5</label>
+                  <input class="form-check-input" type="radio"  name="Questao1" id="Questao1Radio5" value="5">
+                  <label class="form-check-label" for="Questao1Radio5">5</label>
                 </div>
             </div>
 
@@ -70,24 +52,24 @@
                     <p style="color: darkred">obs: Na escala, 1 significa Baixíssima Frequência e 5 significa Altíssima Frequência.</p>
                 </p>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao2" id="inlineRadio1" value="1">
-                  <label class="form-check-label" for="inlineRadio1">1</label>
+                  <input class="form-check-input" type="radio" required name="Questao2" id="Questao2Radio1" value="1">
+                  <label class="form-check-label" for="Questao2Radio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio"  required name="Questao2" id="inlineRadio2" value="2">
-                  <label class="form-check-label" for="inlineRadio2">2</label>
+                  <input class="form-check-input" type="radio"   name="Questao2" id="Questao2Radio2" value="2">
+                  <label class="form-check-label" for="Questao2Radio2">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao2" id="inlineRadio2" value="3">
-                  <label class="form-check-label" for="inlineRadio2">3</label>
+                  <input class="form-check-input" type="radio"  name="Questao2" id="Questao2Radio2" value="3">
+                  <label class="form-check-label" for="Questao2Radio3">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao2" id="inlineRadio2" value="4">
-                  <label class="form-check-label" for="inlineRadio2">4</label>
+                  <input class="form-check-input" type="radio"  name="Questao2" id="Questao2Radio2" value="4">
+                  <label class="form-check-label" for="Questao2Radio4">4</label>
                 </div>
                 <div class="form-check form-check-inline mb-2">
-                  <input class="form-check-input" type="radio" required name="Questao2" id="inlineRadio2" value="5">
-                  <label class="form-check-label" for="inlineRadio2">5</label>
+                  <input class="form-check-input" type="radio"  name="Questao2" id="Questao2Radio2" value="5">
+                  <label class="form-check-label" for="Questao2Radio5">5</label>
                 </div>
             </div>
 
@@ -98,24 +80,24 @@
                     <p style="color: darkred">obs: Na escala, 1 significa Baixíssima importância e 5 significa Altíssima importância.</p>
                 </p>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio1" value="1">
-                  <label class="form-check-label" for="inlineRadio1">1</label>
+                  <input class="form-check-input" type="radio" required name="Questao3" id="Questao3Radio1" value="1">
+                  <label class="form-check-label" for="Questao3Radio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio2" value="2">
-                  <label class="form-check-label" for="inlineRadio2">2</label>
+                  <input class="form-check-input" type="radio"  name="Questao3" id="Questao3Radio2" value="2">
+                  <label class="form-check-label" for="Questao3Radio2">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio2" value="3">
-                  <label class="form-check-label" for="inlineRadio2">3</label>
+                  <input class="form-check-input" type="radio"  name="Questao3" id="Questao3Radio3" value="3">
+                  <label class="form-check-label" for="Questao3Radio3">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio2" value="4">
-                  <label class="form-check-label" for="inlineRadio2">4</label>
+                  <input class="form-check-input" type="radio"  name="Questao3" id="Questao3Radio4" value="4">
+                  <label class="form-check-label" for="Questao3Radio4">4</label>
                 </div>
                 <div class="form-check form-check-inline mb-2">
-                  <input class="form-check-input" type="radio" required name="Questao3" id="inlineRadio2" value="5">
-                  <label class="form-check-label" for="inlineRadio2">5</label>
+                  <input class="form-check-input" type="radio"  name="Questao3" id="Questao3Radio5" value="5">
+                  <label class="form-check-label" for="Questao3Radio5">5</label>
                 </div>
             </div>
 
@@ -126,24 +108,24 @@
                     <p style="color: darkred">obs: Na escala, 1 significa Nada Suficiente e 5 significa Altamente  Suficiente.</p>
                 </p>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio1" value="1">
-                  <label class="form-check-label" for="inlineRadio1">1</label>
+                  <input class="form-check-input" type="radio" required name="Questao4" id="Questao4Radio1" value="1">
+                  <label class="form-check-label" for="Questao4Radio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio2" value="2">
-                  <label class="form-check-label" for="inlineRadio2">2</label>
+                  <input class="form-check-input" type="radio"  name="Questao4" id="Questao4Radio2" value="2">
+                  <label class="form-check-label" for="Questao4Radio2">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio2" value="3">
-                  <label class="form-check-label" for="inlineRadio2">3</label>
+                  <input class="form-check-input" type="radio"  name="Questao4" id="Questao4Radio3" value="3">
+                  <label class="form-check-label" for="Questao4Radio3">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio2" value="4">
-                  <label class="form-check-label" for="inlineRadio2">4</label>
+                  <input class="form-check-input" type="radio"  name="Questao4" id="Questao4Radio4" value="4">
+                  <label class="form-check-label" for="Questao4Radio4">4</label>
                 </div>
                 <div class="form-check form-check-inline mb-2">
-                  <input class="form-check-input" type="radio" required name="Questao4" id="inlineRadio2" value="5">
-                  <label class="form-check-label" for="inlineRadio2">5</label>
+                  <input class="form-check-input" type="radio"  name="Questao4" id="Questao4Radio5" value="5">
+                  <label class="form-check-label" for="Questao4Radio5">5</label>
                 </div>
             </div>
 
@@ -154,24 +136,24 @@
                     <p style="color: darkred">obs: Na escala, 1 significa Nada Suficiente e 5 significa Altamente  Suficiente.</p>
                 </p>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio1" value="1">
-                  <label class="form-check-label" for="inlineRadio1">1</label>
+                  <input class="form-check-input" type="radio" required name="Questao5" id="Questao5Radio1" value="1">
+                  <label class="form-check-label" for="Questao5Radio1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio2" value="2">
-                  <label class="form-check-label" for="inlineRadio2">2</label>
+                  <input class="form-check-input" type="radio"  name="Questao5" id="Questao5Radio2" value="2">
+                  <label class="form-check-label" for="Questao5Radio2">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio2" value="3">
-                  <label class="form-check-label" for="inlineRadio2">3</label>
+                  <input class="form-check-input" type="radio"  name="Questao5" id="Questao5Radio3" value="3">
+                  <label class="form-check-label" for="Questao5Radio3">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio2" value="4">
-                  <label class="form-check-label" for="inlineRadio2">4</label>
+                  <input class="form-check-input" type="radio"  name="Questao5" id="Questao5Radio4" value="4">
+                  <label class="form-check-label" for="Questao5Radio4">4</label>
                 </div>
                 <div class="form-check form-check-inline mb-2">
-                  <input class="form-check-input" type="radio" required name="Questao5" id="inlineRadio2" value="5">
-                  <label class="form-check-label" for="inlineRadio2">5</label>
+                  <input class="form-check-input" type="radio" name="Questao5" id="Questao5Radio5" value="5">
+                  <label class="form-check-label" for="Questao5Radio5">5</label>
                 </div>
             </div>
 
@@ -231,6 +213,7 @@
                 </div>
             </div>
 
+            <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
     </div>
 </div>
