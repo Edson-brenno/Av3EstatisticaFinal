@@ -2,7 +2,7 @@
 body{
     height: 100vh; /* Define a altura como 100% da altura da viewport */
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('/static/img/imagen_background_vida_marinha.webp');
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: cover;
 }
 
@@ -17,7 +17,7 @@ body{
       padding: 0; /* Remove espaçamentos padrão */
       height: 100vh; /* Define a altura como 100% da altura da viewport */
       background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('/static/img/imagem_background_vida_marinha_mobile.webp');
-      background-repeat: no-repeat;
+      background-repeat: repeat-y;
       background-size: cover;
       background-position: center; /* Centraliza a imagem */
       background-attachment: fixed; /* Faz a imagem ficar fixa ao rolar a página (opcional) */

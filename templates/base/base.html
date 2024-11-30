@@ -8,7 +8,172 @@
         <link rel="stylesheet" href="{% static 'css/cover.css' %}" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
         <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+
         <title>Pesquisa</title>
+
+        <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+        <script type="text/javascript">
+            async function fazerRequisicao() {
+                try {
+                    const response = await fetch('/relatorio/dados/grafico/', {
+                        method: 'GET', // Use 'POST' if necessary
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const data = await response.json(); // Parse JSON data
+                    return data;
+                } catch (error) {
+                    console.error('Houve um problema com a requisição:', error);
+                    return ""; // Return an empty string or a fallback value
+                }
+            }
+
+            window.onload = async function () {
+                // Wait for the data to be resolved
+                const dados_graficos = await fazerRequisicao();
+
+                // Log to confirm data is received
+                console.log(dados_graficos);
+
+                var graph1 = new CanvasJS.Chart("graph_questao_1", {
+                        title: {
+                            text: "Grafico Questão 1"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Altíssima Frequência", y: dados_graficos['grafico_questao_1']['altissima_frequencia'] || 0 },
+                                    { label: "Alta Frequência", y: dados_graficos['grafico_questao_1']['alta_frequencia'] || 0 },
+                                    { label: "Frequente", y: dados_graficos['grafico_questao_1']['baixa_frequencia'] || 0 },
+                                    { label: "Baixa Frequência", y: dados_graficos['grafico_questao_1']['baixissima_frequencia'] || 0 },
+                                    { label: "Baixíssima Frequência", y: dados_graficos['grafico_questao_1']['frequente'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                var graph2 = new CanvasJS.Chart("graph_questao_2", {
+                        title: {
+                            text: "Grafico Questão 2"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Altíssima Frequência", y: dados_graficos['grafico_questao_2']['altissima_frequencia'] || 0 },
+                                    { label: "Alta Frequência", y: dados_graficos['grafico_questao_2']['alta_frequencia'] || 0 },
+                                    { label: "Frequente", y: dados_graficos['grafico_questao_2']['baixa_frequencia'] || 0 },
+                                    { label: "Baixa Frequência", y: dados_graficos['grafico_questao_2']['baixissima_frequencia'] || 0 },
+                                    { label: "Baixíssima Frequência", y: dados_graficos['grafico_questao_2']['frequente'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                var graph3 = new CanvasJS.Chart("graph_questao_3", {
+                        title: {
+                            text: "Grafico Questão 3"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Altíssima Importância", y: dados_graficos['grafico_questao_3']['altissima_importancia'] || 0 },
+                                    { label: "Alta Importância", y: dados_graficos['grafico_questao_3']['alta_importancia'] || 0 },
+                                    { label: "Importante", y: dados_graficos['grafico_questao_3']['importante'] || 0 },
+                                    { label: "Baixa Importância", y: dados_graficos['grafico_questao_3']['baixa_importancia'] || 0 },
+                                    { label: "Baixíssima Importância", y: dados_graficos['grafico_questao_3']['baixissima_importancia'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                var graph4 = new CanvasJS.Chart("graph_questao_4", {
+                        title: {
+                            text: "Grafico Questão 4"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Altamente Suficiente", y: dados_graficos['grafico_questao_4']['altamente_suficiente'] || 0 },
+                                    { label: "Muito Suficiente", y: dados_graficos['grafico_questao_4']['muito_suficiente'] || 0 },
+                                    { label: "Suficiente", y: dados_graficos['grafico_questao_4']['suficiente'] || 0 },
+                                    { label: "Pouco Suficiente", y: dados_graficos['grafico_questao_4']['pouco_suficiente'] || 0 },
+                                    { label: "Nada Suficiente", y: dados_graficos['grafico_questao_4']['nada_suficiente'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+
+                var graph5 = new CanvasJS.Chart("graph_questao_5", {
+                        title: {
+                            text: "Grafico Questão 5"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Altamente Suficiente", y: dados_graficos['grafico_questao_5']['altamente_suficiente'] || 0 },
+                                    { label: "Muito Suficiente", y: dados_graficos['grafico_questao_5']['muito_suficiente'] || 0 },
+                                    { label: "Suficiente", y: dados_graficos['grafico_questao_5']['suficiente'] || 0 },
+                                    { label: "Pouco Suficiente", y: dados_graficos['grafico_questao_5']['pouco_suficiente'] || 0 },
+                                    { label: "Nada Suficiente", y: dados_graficos['grafico_questao_5']['nada_suficiente'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+
+
+                var graph6 = new CanvasJS.Chart("graph_questao_6", {
+                        title: {
+                            text: "Grafico Questão 6"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Reduzir uso de plastico", y: dados_graficos['grafico_questao_6']['reduzir_uso_de_plastico'] || 0 },
+                                    { label: "Aumentar Campanhas", y: dados_graficos['grafico_questao_6']['aumentar_campanhas'] || 0 },
+                                    { label: "Incentivar Praticas", y: dados_graficos['grafico_questao_6']['incentivar_particas'] || 0 },
+                                    { label: "Reforçar Leis", y: dados_graficos['grafico_questao_6']['reforcar_leis'] || 0 },
+                                    { label: "Melhorar Saneamento", y: dados_graficos['grafico_questao_6']['melhorar_saneamento'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                    graph1.render();
+
+                    graph2.render();
+
+                    graph3.render();
+
+                    graph4.render();
+
+                    graph5.render();
+
+                    graph6.render();
+                };
+
+
+        </script>
     </head>
     <body class="d-flex min-vh-100 text-center text-bg-dark">
         <div class="cover-container d-flex w-100 vh-100 p-3 mx-auto flex-column">
@@ -19,15 +184,6 @@
         </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-{#    <script>#}
-{#    function ValidaESubmete() {#}
-{#        const form = document.getElementById('teste');#}
-{#        if (form.checkValidity()) {#}
-{#            form.submit(); // Submit only if validation passes#}
-{#        } else {#}
-{#            form.reportValidity(); // Show validation error messages#}
-{#        }#}
-{#    }#}
-{#</script>#}
+
     </body>
 </html>
