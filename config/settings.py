@@ -34,7 +34,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', ' https://de03-45-189-25-230.ngrok-free.app']
+
+CSRF_TRUSTED_ORIGINS = ['localhost', ' https://de03-45-189-25-230.ngrok-free.app']
 
 #configurando uma pasta para os apps
 sys.path.insert(0,os.path.join(PROJECT_ROOT,'../apps'))
