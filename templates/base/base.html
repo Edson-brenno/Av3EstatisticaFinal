@@ -14,9 +14,9 @@
         <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 
         <script type="text/javascript">
-            async function fazerRequisicao() {
+            async function fazerRequisicao(url) {
                 try {
-                    const response = await fetch('/relatorio/dados/grafico/', {
+                    const response = await fetch(url, {
                         method: 'GET', // Use 'POST' if necessary
                         headers: {
                             'Content-Type': 'application/json',
@@ -37,7 +37,8 @@
 
             window.onload = async function () {
                 // Wait for the data to be resolved
-                const dados_graficos = await fazerRequisicao();
+                const dados_graficos = await fazerRequisicao('/relatorio/dados/grafico/');
+                const dados_dispersao = await fazerRequisicao('/relatorio/dados/dispersao/')
 
                 // Log to confirm data is received
                 console.log(dados_graficos);
@@ -170,7 +171,129 @@
                     graph5.render();
 
                     graph6.render();
+
+                    var dispersao1 = new CanvasJS.Chart("dispersao_questao_1", {
+                        title: {
+                            text: "Dispersão Questão 1"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_dispersao['dispersao_questao_1']['media'] || 0 },
+                                    { label: "Desvio Padrão", y: dados_dispersao['dispersao_questao_1']['desvio_padrao'] || 0 },
+                                    { label: "Desvio Médio", y: dados_dispersao['dispersao_questao_1']['desvio_medio'] || 0 },
+                                    { label: "Variancia", y: dados_dispersao['dispersao_questao_1']['variancia'] || 0 },
+                                    { label: "Amplitude", y: dados_dispersao['dispersao_questao_1']['amplitude'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                    var dispersao2 = new CanvasJS.Chart("dispersao_questao_2", {
+                        title: {
+                            text: "Dispersão Questão 2"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_dispersao['dispersao_questao_2']['media'] || 0 },
+                                    { label: "Desvio Padrão", y: dados_dispersao['dispersao_questao_2']['desvio_padrao'] || 0 },
+                                    { label: "Desvio Médio", y: dados_dispersao['dispersao_questao_2']['desvio_medio'] || 0 },
+                                    { label: "Variancia", y: dados_dispersao['dispersao_questao_2']['variancia'] || 0 },
+                                    { label: "Amplitude", y: dados_dispersao['dispersao_questao_2']['amplitude'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                    var dispersao3 = new CanvasJS.Chart("dispersao_questao_3", {
+                        title: {
+                            text: "Dispersão Questão 3"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_dispersao['dispersao_questao_3']['media'] || 0 },
+                                    { label: "Desvio Padrão", y: dados_dispersao['dispersao_questao_3']['desvio_padrao'] || 0 },
+                                    { label: "Desvio Médio", y: dados_dispersao['dispersao_questao_3']['desvio_medio'] || 0 },
+                                    { label: "Variancia", y: dados_dispersao['dispersao_questao_3']['variancia'] || 0 },
+                                    { label: "Amplitude", y: dados_dispersao['dispersao_questao_3']['amplitude'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                    var dispersao4 = new CanvasJS.Chart("dispersao_questao_4", {
+                        title: {
+                            text: "Dispersão Questão 4"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_dispersao['dispersao_questao_4']['media'] || 0 },
+                                    { label: "Desvio Padrão", y: dados_dispersao['dispersao_questao_4']['desvio_padrao'] || 0 },
+                                    { label: "Desvio Médio", y: dados_dispersao['dispersao_questao_4']['desvio_medio'] || 0 },
+                                    { label: "Variancia", y: dados_dispersao['dispersao_questao_4']['variancia'] || 0 },
+                                    { label: "Amplitude", y: dados_dispersao['dispersao_questao_4']['amplitude'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                    var dispersao5 = new CanvasJS.Chart("dispersao_questao_5", {
+                        title: {
+                            text: "Dispersão Questão 5"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_dispersao['dispersao_questao_5']['media'] || 0 },
+                                    { label: "Desvio Padrão", y: dados_dispersao['dispersao_questao_5']['desvio_padrao'] || 0 },
+                                    { label: "Desvio Médio", y: dados_dispersao['dispersao_questao_5']['desvio_medio'] || 0 },
+                                    { label: "Variancia", y: dados_dispersao['dispersao_questao_5']['variancia'] || 0 },
+                                    { label: "Amplitude", y: dados_dispersao['dispersao_questao_5']['amplitude'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                    var dispersao6 = new CanvasJS.Chart("dispersao_questao_6", {
+                        title: {
+                            text: "Dispersão Questão 6"
+                        },
+                        data: [
+                            {
+                                // Change type to "doughnut", "line", "splineArea", etc.
+                                type: "column",
+                                dataPoints: [
+                                    { label: "Média", y: dados_dispersao['dispersao_questao_6']['media'] || 0 },
+                                    { label: "Desvio Padrão", y: dados_dispersao['dispersao_questao_6']['desvio_padrao'] || 0 },
+                                    { label: "Desvio Médio", y: dados_dispersao['dispersao_questao_6']['desvio_medio'] || 0 },
+                                    { label: "Variancia", y: dados_dispersao['dispersao_questao_6']['variancia'] || 0 },
+                                    { label: "Amplitude", y: dados_dispersao['dispersao_questao_6']['amplitude'] || 0 }
+                                ]
+                            }
+                        ]
+                    });
+
+                    dispersao1.render();
+                    dispersao2.render();
+                    dispersao3.render();
+                    dispersao4.render();
+                    dispersao5.render();
+                    dispersao6.render();
                 };
+
 
 
         </script>

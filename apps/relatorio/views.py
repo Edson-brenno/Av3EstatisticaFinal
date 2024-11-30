@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 
 from questionario.models import TbQuestionario
-
+import numpy as nb
 
 # Create your views here.
 def relatorio(request):
@@ -59,3 +59,94 @@ def obter_dados_grafico(request):
     }
 
     return JsonResponse(data=dados_retorno_grafico, safe=False)
+
+# Função para converter numpy types em tipos nativos de Python
+def converter_para_python(valor):
+    if isinstance(valor, (nb.float64, nb.float32)):
+        return float(valor)
+    elif isinstance(valor, (nb.int64, nb.int32)):
+        return int(valor)
+    elif isinstance(valor, nb.ndarray):
+        return valor.tolist()
+    return valor
+
+def obter_dados_dispersao(request):
+
+    dados = TbQuestionario.objects.all()
+    dados_dispersao_questao_1 = [dados.filter(questao_1=1).count(), dados.filter(questao_1=2).count(), dados.filter(questao_1=3).count(),
+                                 dados.filter(questao_1=4).count(), dados.filter(questao_1=5).count()]
+
+    dados_dispersao_questao_2 = [dados.filter(questao_2=1).count(), dados.filter(questao_2=2).count(),
+                                 dados.filter(questao_2=3).count(),
+                                 dados.filter(questao_2=4).count(), dados.filter(questao_2=5).count()]
+
+    dados_dispersao_questao_3 = [dados.filter(questao_3=1).count(), dados.filter(questao_3=2).count(),
+                                 dados.filter(questao_3=3).count(),
+                                 dados.filter(questao_3=4).count(), dados.filter(questao_3=5).count()]
+
+    dados_dispersao_questao_4 = [dados.filter(questao_4=1).count(), dados.filter(questao_4=2).count(),
+                                 dados.filter(questao_4=3).count(),
+                                 dados.filter(questao_4=4).count(), dados.filter(questao_4=5).count()]
+
+    dados_dispersao_questao_5 = [dados.filter(questao_5=1).count(), dados.filter(questao_5=2).count(),
+                                 dados.filter(questao_5=3).count(),
+                                 dados.filter(questao_5=4).count(), dados.filter(questao_5=5).count()]
+
+    dados_dispersao_questao_6 = [dados.filter(questao_6=1).count(), dados.filter(questao_6=2).count(),
+                                 dados.filter(questao_6=3).count(),
+                                 dados.filter(questao_6=4).count(), dados.filter(questao_6=5).count()]
+
+    # Construindo os dados e convertendo os valores
+    dados_retorno_dispersao = {
+        "dispersao_questao_1": {
+            "media": converter_para_python(nb.mean(dados_dispersao_questao_1)),
+            "desvio_padrao": converter_para_python(nb.std(dados_dispersao_questao_1)),
+            "desvio_medio": converter_para_python(
+                nb.mean(nb.abs(dados_dispersao_questao_1 - nb.mean(dados_dispersao_questao_1)))),
+            "variancia": converter_para_python(nb.var(dados_dispersao_questao_1)),
+            "amplitude": converter_para_python(nb.max(dados_dispersao_questao_1) - nb.min(dados_dispersao_questao_1)),
+        },
+        "dispersao_questao_2": {
+            "media": converter_para_python(nb.mean(dados_dispersao_questao_2)),
+            "desvio_padrao": converter_para_python(nb.std(dados_dispersao_questao_2)),
+            "desvio_medio": converter_para_python(
+                nb.mean(nb.abs(dados_dispersao_questao_2 - nb.mean(dados_dispersao_questao_2)))),
+            "variancia": converter_para_python(nb.var(dados_dispersao_questao_2)),
+            "amplitude": converter_para_python(nb.max(dados_dispersao_questao_2) - nb.min(dados_dispersao_questao_2)),
+        },
+        "dispersao_questao_3": {
+            "media": converter_para_python(nb.mean(dados_dispersao_questao_3)),
+            "desvio_padrao": converter_para_python(nb.std(dados_dispersao_questao_3)),
+            "desvio_medio": converter_para_python(
+                nb.mean(nb.abs(dados_dispersao_questao_3 - nb.mean(dados_dispersao_questao_3)))),
+            "variancia": converter_para_python(nb.var(dados_dispersao_questao_3)),
+            "amplitude": converter_para_python(nb.max(dados_dispersao_questao_3) - nb.min(dados_dispersao_questao_3)),
+        },
+        "dispersao_questao_4": {
+            "media": converter_para_python(nb.mean(dados_dispersao_questao_4)),
+            "desvio_padrao": converter_para_python(nb.std(dados_dispersao_questao_4)),
+            "desvio_medio": converter_para_python(
+                nb.mean(nb.abs(dados_dispersao_questao_4 - nb.mean(dados_dispersao_questao_4)))),
+            "variancia": converter_para_python(nb.var(dados_dispersao_questao_4)),
+            "amplitude": converter_para_python(nb.max(dados_dispersao_questao_4) - nb.min(dados_dispersao_questao_4)),
+        },
+        "dispersao_questao_5": {
+            "media": converter_para_python(nb.mean(dados_dispersao_questao_5)),
+            "desvio_padrao": converter_para_python(nb.std(dados_dispersao_questao_5)),
+            "desvio_medio": converter_para_python(
+                nb.mean(nb.abs(dados_dispersao_questao_5 - nb.mean(dados_dispersao_questao_5)))),
+            "variancia": converter_para_python(nb.var(dados_dispersao_questao_5)),
+            "amplitude": converter_para_python(nb.max(dados_dispersao_questao_5) - nb.min(dados_dispersao_questao_5)),
+        },
+        "dispersao_questao_6": {
+            "media": converter_para_python(nb.mean(dados_dispersao_questao_6)),
+            "desvio_padrao": converter_para_python(nb.std(dados_dispersao_questao_6)),
+            "desvio_medio": converter_para_python(
+                nb.mean(nb.abs(dados_dispersao_questao_6 - nb.mean(dados_dispersao_questao_6)))),
+            "variancia": converter_para_python(nb.var(dados_dispersao_questao_6)),
+            "amplitude": converter_para_python(nb.max(dados_dispersao_questao_6) - nb.min(dados_dispersao_questao_6)),
+        },
+    }
+
+    print(dados_retorno_dispersao)
+    return JsonResponse(data=dados_retorno_dispersao, safe=False)
